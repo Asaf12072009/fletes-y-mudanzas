@@ -36,14 +36,6 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
-    /* Favicon como Logo en Navbar */
-    .brand-logo {
-      height: 38px;
-      width: 38px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-
     /* Redes Sociales Rectangulares con Logos y Colores Originales + Brillo */
     .social-btn-rect {
       display: inline-flex;
@@ -79,6 +71,35 @@
       object-fit: cover;
     }
 
+    /* Mapa de México animado de fondo en el Hero */
+    .hero-map-bg {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 45%;
+      max-width: 550px;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+      animation: floatMap 6s ease-in-out infinite;
+    }
+
+    [data-bs-theme="dark"] .hero-map-bg {
+      opacity: 0.22;
+      filter: invert(1);
+    }
+
+    @keyframes floatMap {
+      0%, 100% { transform: translateY(-50%) scale(1); }
+      50% { transform: translateY(-53%) scale(1.02); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
     /* Widget Flotante de WhatsApp */
     .floating-whatsapp {
       position: fixed;
@@ -106,12 +127,10 @@
 </head>
 <body id="app">
 
-  <!-- Navbar -->
+  <!-- Navbar (Sin logo izquierdo y sin botón repetido de WhatsApp) -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-        <img src="./src/images/favicon.jpg" alt="FletHumberto Logo" class="brand-logo shadow-sm">
-      </a>
+      <a class="navbar-brand fw-bold text-primary" href="#">FletHumberto</a>
 
       <div class="d-flex align-items-center gap-3">
         <ul class="navbar-nav flex-row gap-3 d-none d-lg-flex me-2">
@@ -126,43 +145,34 @@
         <button class="btn btn-outline-secondary btn-sm" @click="toggleTheme" title="Cambiar tema">
           <i :class="isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'"></i>
         </button>
-
-        <a :href="whatsappUrl" class="btn btn-success fw-bold px-3 py-2 shadow-sm d-flex align-items-center gap-2" target="_blank">
-          <i class="bi bi-whatsapp fs-5"></i> WhatsApp
-        </a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <header id="inicio" class="vh-100 d-flex align-items-center bg-body-secondary text-center text-lg-start" style="padding-top: 56px;">
-    <div class="container">
-      <div class="row align-items-center justify-content-between">
-        <div class="col-lg-7" data-aos="fade-right">
+  <!-- Hero Section con Mapa Animado de la República Mexicana al fondo -->
+  <header id="inicio" class="vh-100 d-flex align-items-center bg-body-secondary position-relative overflow-hidden" style="padding-top: 56px;">
+    <!-- Mapa SVG simplificado de México animado -->
+    <svg class="hero-map-bg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M350,80 Q420,50 500,70 T650,110 T800,180 T850,250 T750,320 T600,380 T500,450 T400,380 T300,300 T200,220 T280,120 Z" />
+    </svg>
+
+    <div class="container hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
           <h1 class="display-3 fw-bold mb-3">Fletes y Mudanzas Rápidas y Seguras</h1>
-          <p class="lead mb-4">Trasladamos tus pertenencias con el mayor cuidado, puntualidad y al mejor precio desde nuestra base en Iztapalapa hacia toda la República Mexicana.</p>
-          <div class="d-flex gap-3 justify-content-center justify-content-lg-start">
-            <a href="#calculadora" class="btn btn-primary btn-lg shadow-sm">Calcular Tarifa</a>
-            <a :href="whatsappUrl" class="btn btn-success btn-lg shadow-sm" target="_blank">
-              <i class="bi bi-whatsapp"></i> Contactar
+          <p class="lead mb-5 col-lg-8 mx-auto">Trasladamos tus pertenencias con el mayor cuidado, puntualidad y al mejor precio desde nuestra base en Iztapalapa hacia toda la República Mexicana.</p>
+          <div class="d-flex gap-3 justify-content-center">
+            <a href="#calculadora" class="btn btn-primary btn-lg shadow-sm px-4">Calcular Tarifa</a>
+            <a :href="whatsappUrl" class="btn btn-success btn-lg shadow-sm px-4" target="_blank">
+              <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
             </a>
-          </div>
-        </div>
-        <div class="col-lg-4 mt-5 mt-lg-0" data-aos="fade-left">
-          <div class="card shadow border-0 p-4 bg-body text-center">
-            <div class="card-body">
-              <i class="bi bi-shield-check display-3 text-success mb-3"></i>
-              <h3 class="h4 fw-bold mb-2">100% Confiables</h3>
-              <p class="text-muted small mb-4">Unidades equipadas, personal capacitado y protección garantizada para tus muebles y mercancías.</p>
-              <a :href="whatsappUrl" class="btn btn-dark w-100 py-2" target="_blank">Atención Inmediata</a>
-            </div>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- 1. Calculador de Tarifas Interactivo (Mejora 1) -->
+  <!-- Calculador de Tarifas Interactivo -->
   <section class="py-5" id="calculadora">
     <div class="container" data-aos="fade-up">
       <div class="row justify-content-center">
@@ -251,7 +261,7 @@
     </div>
   </section>
 
-  <!-- 3. Galería y Tipos de Unidades (Mejora 3) -->
+  <!-- Galería y Tipos de Unidades -->
   <section class="py-5" id="unidades">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
@@ -288,11 +298,11 @@
     </div>
   </section>
 
-  <!-- 2. Testimonios y Reseñas Reales (Mejora 2) -->
+  <!-- Testimonios y Reseñas Reales -->
   <section class="py-5 bg-body-secondary" id="testimonios">
     <div class="container">
       <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="fw-bold display-5">Lo Que Dicen Nustros Clientes</h2>
+        <h2 class="fw-bold display-5">Lo Que Dicen Nuestros Clientes</h2>
         <p class="text-muted">Experiencias reales de quienes ya confiaron en FletHumberto</p>
       </div>
       <div class="row g-4">
@@ -363,12 +373,12 @@
     </div>
   </footer>
 
-  <!-- 5. Widget Flotante Inteligente de WhatsApp (Mejora 5) -->
+  <!-- Widget Flotante Inteligente de WhatsApp -->
   <a :href="whatsappUrl" class="floating-whatsapp shadow-lg" target="_blank" title="Chatea con nosotros">
     <i class="bi bi-whatsapp"></i>
   </a>
 
-  <!-- Scripts: Bootstrap Bundle, Vue 3, AOS y app.js actualizado -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
