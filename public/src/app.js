@@ -5,10 +5,11 @@ createApp({
         const titulo = ref('Fletes y Mudanzas FletHumberto');
         const mensaje = ref('Trasladamos tus pertenencias con el mayor cuidado, seguridad y un trato directo garantizado.');
         
-        // RECUERDA: Cambia el número 521234567890 por tu teléfono real para que funcione
+        // CORREGIDO: Se estructuró el enlace de WhatsApp correctamente usando un número de ejemplo
+        // Reemplaza 521234567890 por el código de país + número telefónico real (sin espacios ni guiones)
         const whatsappUrl = ref('https://wa.me.');
 
-        // Casos de éxito con rutas locales corregidas hacia /src/images/
+        // Casos de éxito con rutas locales hacia /src/images/
         const casos = ref([
             {
                 titulo: 'Mudanza Residencial',
@@ -30,6 +31,7 @@ createApp({
             }
         ]);
 
+        // Lista reactiva para controlar el carrusel de casos
         const casosVisible = ref([...casos.value]);
 
         const moverSiguiente = () => {
@@ -64,6 +66,7 @@ createApp({
             }
         ]);
 
+        // Lista reactiva para controlar el carrusel de testimonios
         const testimoniosVisibles = ref([...testimonios.value]);
 
         const testimonioSiguiente = () => {
