@@ -3,27 +3,44 @@ const { createApp, ref, computed, onMounted } = Vue;
 createApp({
   setup() {
     const isDark = ref(false);
-    const form = ref({
-      origen: '',
-      destino: ''
+    const phoneNumber = "525500000000"; // Reemplaza con tu número real de WhatsApp con código de país (Ej: 521XXXXXXXXXX)
+
+    // Estado del calculador interactivo
+    const calc = ref({
+      tipo: 'local',
+      tamanio: 'mediano'
     });
 
+    // Lógica de cálculo estimada
+    const calcularPrecio = computed(() => {
+      let base = 800;
+      if (calc.value.tipo === 'foraneo') base = 3500;
+      if (calc.value.tipo === 'comercial') base = 1500;
+
+      if (calc.value.tamanio === 'mediano') base *= 1.5;
+      if (calc.value.tamanio === 'grande') base *= 2.5;
+
+      return Math.round(base);
+    });
+
+    // URLs de WhatsApp preparadas
+    const whatsappUrl = computed(() => {
+      const msg = encodeURIComponent("¡Hola FletHumberto! Me interesa cotizar un flete o mudanza.");
+      return `https://wa.me/${phoneNumber}?text=${msg}`;
+    });
+
+    const whatsappCotizarUrl = computed(() => {
+      const tipoTxt = calc.value.tipo === 'local' ? 'Local' : calc.value.tipo === 'foraneo' ? 'Foráneo' : 'Comercial';
+      const tamTxt = calc.value.tamanio === 'chico' ? 'Chico' : calc.value.tamanio === 'mediano' ? 'Mediano' : 'Grande';
+      const msg = encodeURIComponent(`Hola FletHumberto, calculé una tarifa en su web para servicio [${tipoTxt}] y tamaño [${tamTxt}] por un estimado de $${calcularPrecio.value} MXN. ¿Podemos agendar?`);
+      return `https://wa.me/${phoneNumber}?text=${msg}`;
+    });
+
+    // Control de modo oscuro / claro
     const toggleTheme = () => {
       isDark.value = !isDark.value;
-      const theme = isDark.value ? 'dark' : 'light';
-      document.documentElement.setAttribute('data-bs-theme', theme);
-    };
-
-    const whatsappUrl = computed(() => {
-      const phone = "521XXXXXXXXXX"; // Reemplaza con tu número de teléfono real
-      const text = encodeURIComponent("¡Hola FletHumberto! Me interesa cotizar un servicio de flete o mudanza.");
-      return `https://wa.me/${phone}?text=${text}`;
-    });
-
-    const sendQuote = () => {
-      const phone = "521XXXXXXXXXX"; // Reemplaza con tu número
-      const text = encodeURIComponent(`Hola FletHumberto, quiero cotizar un traslado:\n- Origen: ${form.value.origen}\n- Destino: ${form.value.destino}`);
-      window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+      const htmlEl = document.documentElement;
+      htmlEl.setAttribute('data-bs-theme', isDark.value ? 'dark' : 'light');
     };
 
     onMounted(() => {
@@ -32,10 +49,11 @@ createApp({
 
     return {
       isDark,
-      form,
-      toggleTheme,
+      calc,
+      calcularPrecio,
       whatsappUrl,
-      sendQuote
+      whatsappCotizarUrl,
+      toggleTheme
     };
   }
 }).mount('#app');
