@@ -9,14 +9,39 @@
     <link rel="icon" type="image/jpeg" href="./src/images/favicon.jpg">
 
     <!-- Bootstrap 5.3 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://jsdelivr.net" rel="stylesheet">
     <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://jsdelivr.net">
     <!-- AOS Library CSS (Animaciones al hacer scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com" rel="stylesheet">
     
     <!-- Estilos personalizados -->
     <style>
+        /* Efecto de Logo Sobresaliente y Profesional */
+        .logo-sobresaliente {
+            height: 75px !important;
+            width: auto;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            top: 5px;
+            left: 15px;
+            z-index: 1050;
+        }
+
+        /* Contenedor seguro para que el logo no colapse encima del menú */
+        .navbar-brand-contenedor {
+            position: relative;
+            min-width: 140px;
+            height: 50px;
+        }
+
+        @media (max-width: 991.98px) {
+            .logo-sobresaliente {
+                height: 60px !important;
+                top: 2px;
+            }
+        }
+
         .btn-cuadrado-animado {
             border-radius: 0px !important;
             background-color: var(--bs-dark);
@@ -87,13 +112,16 @@
 <body class="bg-body text-body">
 
     <div id="app">
-        <!-- Header / Navbar con Logotipo Superior Izquierdo -->
+        <!-- Header / Navbar adaptable con Logotipo Sobresaliente -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3 sticky-top">
-            <div class="container d-flex justify-content-between align-items-center">
-                <!-- Logotipo Oficial Reemplazando texto plano -->
-                <a class="navbar-brand d-flex align-items-center" href="#inicio">
-                    <img src="./src/images/humbertoramirezlogo.jpg" alt="Logo FletHumberto" height="45" class="d-inline-block align-top bg-white p-1 rounded">
-                </a>
+            <div class="container d-flex justify-content-between align-items-center position-relative">
+                
+                <!-- Contenedor del Logotipo Oficial Oficial -->
+                <div class="navbar-brand-contenedor">
+                    <a class="navbar-brand m-0" href="#inicio">
+                        <img src="./src/images/humbertoramirezlogo.jpg" alt="Logo FletHumberto" class="logo-sobresaliente">
+                    </a>
+                </div>
                 
                 <div class="d-flex align-items-center gap-3">
                     <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -179,18 +207,7 @@
             </div>
         </section>
 
-        <!-- Sección de Casos de Éxito / Imágenes con Números -->
+        <!-- Sección de Casos de Éxito / Imágenes Locales -->
         <section id="casos" class="container py-5 my-4" data-aos="fade-up">
             <div class="text-center mb-5">
                 <h2 class="fw-bold text-body">Casos de Éxito & Trabajos Realizados</h2>
-                <p class="text-muted">Una muestra de nuestros servicios recientes de fletes y mudanzas con nuestras unidades.</p>
-            </div>
-            
-            <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center align-items-center position-relative">
-                <!-- Flecha Anterior -->
-                <button class="btn btn-dark position-absolute start-0 top-50 translate-middle-y z-3 rounded-0" style="width: 45px; height: 50px;" @click="moverAnterior">
-                    <i class="bi bi-chevron-left"></i>
-                </button>
-
-                <!-- Tarjetas Dinámicas Reactivas enlazadas con app.js -->
-                <div class="col" v-for="(caso, index) in casosVisible.slice(0, 3)" :key="index">
