@@ -1,16 +1,15 @@
 {
   "name": "fletes-y-mudanzas",
   "version": "1.0.0",
-  "description": "",
+  "description": "Landing page para FletHumberto - Fletes y Mudanzas",
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.x"
   }
 }

@@ -1,6 +1,3 @@
-# Permitir que los buscadores rastreen todo el sitio web público
 User-agent: *
-Disallow: /api/
-
-# Indicar la ubicación exacta del sitemap para Google, Bing, etc.
-Sitemap: https://flethumberto.com/sitemap.xml
+Allow: /
+Sitemap: https://www.flethumberto.com/sitemap.xml

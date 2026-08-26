@@ -1,16 +1,17 @@
 const express = require('express');
 const path = require('path');
+
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-// Servir archivos estáticos directamente usando el directorio de ejecución actual (la raíz del repositorio)
-app.use(express.static(path.resolve('./')));
+// Servir archivos estáticos desde la carpeta public
+app.use(express.static(path.join(__dirname, '../public')));
 
-// Ruta inicial que envía el archivo index.html desde la raíz real del proyecto
-app.get('/', (req, res) => {
-    res.sendFile(path.resolve('./index.html'));
+// Ruta comodín para SPA o carga de la landing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`FletHumberto server corriendo en el puerto ${PORT}`);
 });

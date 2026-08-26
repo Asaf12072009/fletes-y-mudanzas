@@ -1,219 +1,133 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-bs-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FletHumberto - Fletes y Mudanzas</title>
-    
-    <!-- Favicon (En la pestaña de navegación) -->
-    <link rel="icon" type="image/jpeg" href="./src/images/favicon.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FletHumberto | Fletes y Mudanzas Seguras</title>
+  <meta name="description" content="Servicio profesional de fletes y mudanzas locales y foráneas. ¡Cotiza rápido por WhatsApp!">
+  <link rel="icon" href="./src/images/favicon.jpg" type="image/jpeg">
 
-    <!-- Bootstrap 5.3 CSS (ENLACES COMPLETOS Y VERIFICADOS) -->
-    <link href="https://jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    
-    <!-- Bootstrap Icons (ENLACE COMPLETO Y CORREGIDO) -->
-    <link rel="stylesheet" href="https://jsdelivr.net">
-    
-    <!-- Estilos personalizados -->
-    <style>
-        /* Efecto de Logo Sobresaliente y Profesional */
-        .logo-sobresaliente {
-            height: 75px !important;
-            width: auto;
-            transition: all 0.3s ease-in-out;
-            position: absolute;
-            top: 5px;
-            left: 15px;
-            z-index: 1050;
-        }
-
-        /* Contenedor seguro para que el logo no colapse encima del menú */
-        .navbar-brand-contenedor {
-            position: relative;
-            min-width: 140px;
-            height: 50px;
-        }
-
-        @media (max-width: 991.98px) {
-            .logo-sobresaliente {
-                height: 60px !important;
-                top: 2px;
-            }
-        }
-
-        .btn-cuadrado-animado {
-            border-radius: 0px !important;
-            background-color: var(--bs-dark);
-            color: #ffffff !important;
-            border: 2px solid var(--bs-border-color);
-            transition: all 0.2s ease-in-out;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-        .btn-cuadrado-animado:hover {
-            background-color: #0d6efd !important;
-            border-color: #0d6efd !important;
-            color: #ffffff !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 0px #0a58ca;
-        }
-        .btn-cuadrado-whatsapp {
-            border-radius: 0px !important;
-            background-color: #198754;
-            color: #ffffff !important;
-            border: 2px solid #198754;
-            transition: all 0.2s ease-in-out;
-        }
-        .btn-cuadrado-whatsapp:hover {
-            background-color: #146c43 !important;
-            border-color: #146c43 !important;
-            color: #ffffff !important;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 0px #0f5132;
-        }
-        .btn-social-fb {
-            border-radius: 0px !important;
-            color: #ffffff !important;
-            transition: all 0.2s ease-in-out;
-        }
-        .btn-social-fb:hover {
-            background-color: #1877f2 !important;
-            border-color: #1877f2 !important;
-            color: #ffffff !important;
-        }
-        .btn-social-ig {
-            border-radius: 0px !important;
-            color: #ffffff !important;
-            transition: all 0.2s ease-in-out;
-        }
-        .btn-social-ig:hover {
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
-            border-color: #dc2743 !important;
-            color: #ffffff !important;
-        }
-        .btn-modo-circular {
-            width: 40px;
-            height: 40px;
-            border-radius: 50% !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0;
-            transition: transform 0.2s ease;
-            cursor: pointer;
-        }
-        .btn-modo-circular:hover {
-            transform: scale(1.1);
-        }
-    </style>
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body class="bg-body text-body">
+<body id="app">
 
-    <div id="app">
-        <!-- Header / Navbar adaptable con Logotipo Sobresaliente -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm py-3 sticky-top">
-            <div class="container d-flex justify-content-between align-items-center position-relative">
-                
-                <!-- Contenedor del Logotipo Oficial -->
-                <div class="navbar-brand-contenedor">
-                    <a class="navbar-brand m-0" href="#inicio">
-                        <img src="./src/images/humbertoramirezlogo.jpg" alt="Logo FletHumberto" class="logo-sobresaliente">
-                    </a>
-                </div>
-                
-                <div class="d-flex align-items-center gap-3">
-                    <button class="navbar-toggler border-0 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav align-items-lg-center gap-3 mt-3 mt-lg-0 text-center text-lg-start">
-                        <li class="nav-item"><a class="nav-link text-white" href="#inicio">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#nosotros">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#casos">Casos</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#testimonios">Opiniones</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" href="#contacto">Ubicación</a></li>
-                        <li class="nav-item ms-lg-2 d-flex justify-content-center">
-                            <button id="btnModo" class="btn btn-warning btn-modo-circular shadow-sm" @click="toggleModoDark" title="Cambiar modo día/noche">
-                                <i id="iconoModo" class="bi bi-moon-fill text-dark fs-5"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Sección Hero (Inicio) -->
-        <header id="inicio" class="container py-5 my-4">
-            <div class="row align-items-center">
-                <div class="col-lg-7 text-lg-start text-center mb-4 mb-lg-0">
-                    <!-- INTEGRADO CON VUE: Lee dinámicamente las variables de tu apps.js -->
-                    <h1 class="display-4 fw-bold mb-3 text-body">{{ titulo }}</h1>
-                    <p class="lead text-muted mb-4">{{ mensaje }}</p>
-                    
-                    <div class="d-flex justify-content-lg-start justify-content-center">
-                        <!-- INTEGRADO CON VUE: Enlace reactivo usando :href -->
-                        <a :href="whatsappUrl" target="_blank" class="btn btn-cuadrado-whatsapp px-4 py-3 fw-bold text-decoration-none d-inline-flex align-items-center gap-2 shadow-sm">
-                            <i class="bi bi-whatsapp fs-5"></i>
-                            Cotizar por WhatsApp
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-5 text-center">
-                    <div class="card border-0 shadow-sm p-4 rounded-0 border-top border-dark border-4 bg-body-tertiary">
-                        <h3 class="fw-bold mb-2 text-body">Servicio Directo con Humberto</h3>
-                        <p class="text-muted mb-3">Sin intermediarios, trato 100% personal y honesto. Carga segura local y foránea.</p>
-                        <div class="p-2 text-secondary small border bg-body">
-                            Disponibilidad inmediata para este fin de semana.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Beneficios Rápidos -->
-        <section class="py-4 border-top border-bottom shadow-sm bg-body-tertiary">
-            <div class="container">
-                <div class="row text-center g-4">
-                    <div class="col-md-4">
-                        <div class="d-flex align-items-center justify-content-center gap-3">
-                            <i class="bi bi-shield-check fs-2 text-primary"></i>
-                            <div class="text-start">
-                                <h6 class="fw-bold mb-0 text-body">Cuidado y Seguridad</h6>
-                                <small class="text-muted">Tus pertenencias protegidas</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">
+        <i class="bi bi-truck"></i> FletHumberto
+      </a>
+      <div class="d-flex align-items-center gap-2">
+        <!-- Botón cambio de tema -->
+        <button class="btn btn-outline-secondary btn-sm" @click="toggleTheme" title="Cambiar tema">
+          <i :class="isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'"></i>
+        </button>
+        <a href="https://wa.me/521XXXXXXXXXX?text=Hola%20FletHumberto,%20necesito%20una%20cotización%20para%20un%20flete" class="btn btn-success btn-sm" target="_blank">
+          <i class="bi bi-whatsapp"></i> Cotizar
+        </a>
+      </div>
     </div>
+  </nav>
 
-    <!-- CDN GLOBAL DE VUE 3 (REQUERIDO) -->
-    <script src="https://unpkg.com"></script>
+  <!-- Hero Section -->
+  <header class="vh-100 d-flex align-items-center bg-body-secondary text-center text-lg-start" style="padding-top: 56px;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h1 class="display-4 fw-bold mb-3">Fletes y Mudanzas Rápidas y Seguras</h1>
+          <p class="lead mb-4">Trasladamos tus pertenencias con el mayor cuidado, puntualidad y al mejor precio. Cobertura local y foránea.</p>
+          <a :href="whatsappUrl" class="btn btn-success btn-lg shadow" target="_blank">
+            <i class="bi bi-whatsapp"></i> Cotiza por WhatsApp Ahora
+          </a>
+        </div>
+        <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+          <div class="card shadow border-0 p-3 bg-body">
+            <div class="card-body">
+              <h3 class="h5 mb-3 fw-bold">¿Qué necesitas trasladar?</h3>
+              <form @submit.prevent="sendQuote">
+                <div class="mb-3 text-start">
+                  <label class="form-label">Origen:</label>
+                  <input type="text" class="form-control" v-model="form.origen" placeholder="Colonia / Ciudad" required>
+                </div>
+                <div class="mb-3 text-start">
+                  <label class="form-label">Destino:</label>
+                  <input type="text" class="form-control" v-model="form.destino" placeholder="Colonia / Ciudad" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar a WhatsApp</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <!-- BOOTSTRAP 5.3 JAVASCRIPT BUNDLE (REQUERIDO PARA MENÚS) -->
-    <script src="https://jsdelivr.net" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- Servicios -->
+  <section class="py-5" id="servicios">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold">Nuestros Servicios</h2>
+        <p class="text-muted">Soluciones a la medida para cada tipo de carga</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-house-door display-4 text-primary mb-3"></i>
+              <h4 class="h5 fw-bold">Mudanzas Residenciales</h4>
+              <p class="text-muted small">Cuidamos cada mueble y caja como si fuera nuestro propio hogar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-box-seam display-4 text-primary mb-3"></i>
+              <h4 class="h5 fw-bold">Fletes Locales y Foráneos</h4>
+              <p class="text-muted small">Viajes dentro de la ciudad o hacia cualquier estado de la república.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="card h-100 border-0 shadow-sm text-center p-3">
+            <div class="card-body">
+              <i class="bi bi-briefcase display-4 text-primary mb-3"></i>
+              <h4 class="h5 fw-bold">Entregas Comerciales</h4>
+              <p class="text-muted small">Traslado de mercancías y distribución para negocios y PYMES.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- TU ARCHIVO LÓGICO DE JAVASCRIPT -->
-    <script src="./src/js/apps.js"></script>
+  <!-- Sección Mapa -->
+  <section class="py-5 bg-body-secondary">
+    <div class="container text-center" data-aos="fade-up">
+      <h2 class="fw-bold mb-3">Ubicación y Cobertura</h2>
+      <p class="text-muted mb-4">Estamos listos para salir desde nuestra base hacia cualquier destino.</p>
+      <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.666... (reemplazar con tu enlace de Google Maps)" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
 
-    <!-- Script básico para alternar modo oscuro -->
-    <script>
-        function toggleModoDark() {
-            const htmlElement = document.documentElement;
-            const icono = document.getElementById('iconoModo');
-            
-            if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
-                htmlElement.setAttribute('data-bs-theme', 'light');
-                icono.className = 'bi bi-moon-fill text-dark fs-5';
-            } else {
-                htmlElement.setAttribute('data-bs-theme', 'dark');
-                icono.className = 'bi bi-sun-fill text-warning fs-5';
-            }
-        }
-    </script>
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 FletHumberto. Todos los derechos reservados.</p>
+      <p class="small text-muted">Diseñado para conversiones rápidas vía WhatsApp.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts: Vue 3, AOS y app.js -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./src/app.js"></script>
 </body>
 </html>
