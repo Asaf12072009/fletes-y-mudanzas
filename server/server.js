@@ -2,12 +2,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// 1. Servir archivos estáticos subiendo un nivel hacia la raíz del proyecto
-app.use(express.static(path.join(__dirname, '..')));
+// Servir archivos estáticos directamente usando el directorio de ejecución actual (la raíz del repositorio)
+app.use(express.static(path.resolve('./')));
 
-// 2. SOLUCIÓN AL CANNOT GET: Ruta explícita para enviar el index.html al entrar a la raíz
+// Ruta inicial que envía el archivo index.html desde la raíz real del proyecto
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'index.html'));
+    res.sendFile(path.resolve('./index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
