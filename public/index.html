@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FletHumberto | Fletes y Mudanzas Seguras</title>
-  <meta name="description" content="Servicio profesional de fletes y mudanzas locales y foráneas. ¡Cotiza rápido por WhatsApp!">
+  <title>FletHumberto | Fletes y Mudanzas Seguras en Iztapalapa</title>
+  <meta name="description" content="Servicio profesional de fletes y mudanzas locales y foráneas en Iztapalapa y CDMX. ¡Cotiza rápido por WhatsApp!">
   <link rel="icon" href="./src/images/favicon.jpg" type="image/jpeg">
 
   <!-- Bootstrap 5.3 CSS -->
@@ -13,6 +13,39 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <!-- AOS Animation CSS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <style>
+    /* Estilos personalizados para los botones de redes sociales con efecto brillo */
+    .social-btn {
+      width: 45px;
+      height: 45px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px; /* Cuadrados con esquinas redondeadas */
+      color: #fff;
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .btn-facebook {
+      background-color: #1877f2;
+    }
+    .btn-facebook:hover {
+      background-color: #1877f2;
+      box-shadow: 0 0 15px #1877f2, 0 0 30px #1877f2;
+      color: #fff;
+    }
+    .btn-instagram {
+      background: linear-num(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      background: radial-circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%;
+    }
+    .btn-instagram:hover {
+      box-shadow: 0 0 15px #833ab4, 0 0 30px #fd1d1d;
+      color: #fff;
+    }
+  </style>
 </head>
 <body id="app">
 
@@ -23,11 +56,10 @@
         <i class="bi bi-truck"></i> FletHumberto
       </a>
       <div class="d-flex align-items-center gap-2">
-        <!-- Botón cambio de tema -->
         <button class="btn btn-outline-secondary btn-sm" @click="toggleTheme" title="Cambiar tema">
           <i :class="isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill'"></i>
         </button>
-        <a href="https://wa.me/521XXXXXXXXXX?text=Hola%20FletHumberto,%20necesito%20una%20cotización%20para%20un%20flete" class="btn btn-success btn-sm" target="_blank">
+        <a :href="whatsappUrl" class="btn btn-success btn-sm" target="_blank">
           <i class="bi bi-whatsapp"></i> Cotizar
         </a>
       </div>
@@ -40,7 +72,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6" data-aos="fade-right">
           <h1 class="display-4 fw-bold mb-3">Fletes y Mudanzas Rápidas y Seguras</h1>
-          <p class="lead mb-4">Trasladamos tus pertenencias con el mayor cuidado, puntualidad y al mejor precio. Cobertura local y foránea.</p>
+          <p class="lead mb-4">Trasladamos tus pertenencias con el mayor cuidado, puntualidad y al mejor precio desde Iztapalapa para toda la CDMX y foráneas.</p>
           <a :href="whatsappUrl" class="btn btn-success btn-lg shadow" target="_blank">
             <i class="bi bi-whatsapp"></i> Cotiza por WhatsApp Ahora
           </a>
@@ -52,11 +84,11 @@
               <form @submit.prevent="sendQuote">
                 <div class="mb-3 text-start">
                   <label class="form-label">Origen:</label>
-                  <input type="text" class="form-control" v-model="form.origen" placeholder="Colonia / Ciudad" required>
+                  <input type="text" class="form-control" v-model="form.origen" placeholder="Colonia / Alcaldía" required>
                 </div>
                 <div class="mb-3 text-start">
                   <label class="form-label">Destino:</label>
-                  <input type="text" class="form-control" v-model="form.destino" placeholder="Colonia / Ciudad" required>
+                  <input type="text" class="form-control" v-model="form.destino" placeholder="Colonia / Destino" required>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Enviar a WhatsApp</button>
               </form>
@@ -89,7 +121,7 @@
             <div class="card-body">
               <i class="bi bi-box-seam display-4 text-primary mb-3"></i>
               <h4 class="h5 fw-bold">Fletes Locales y Foráneos</h4>
-              <p class="text-muted small">Viajes dentro de la ciudad o hacia cualquier estado de la república.</p>
+              <p class="text-muted small">Viajes dentro de la CDMX o hacia cualquier estado de la república.</p>
             </div>
           </div>
         </div>
@@ -106,26 +138,89 @@
     </div>
   </section>
 
-  <!-- Sección Mapa -->
-  <section class="py-5 bg-body-secondary">
-    <div class="container text-center" data-aos="fade-up">
-      <h2 class="fw-bold mb-3">Ubicación y Cobertura</h2>
-      <p class="text-muted mb-4">Estamos listos para salir desde nuestra base hacia cualquier destino.</p>
-      <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.666... (reemplazar con tu enlace de Google Maps)" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  <!-- Carrusel de Ejemplos (Con botones < y >) -->
+  <section class="py-5 bg-body-tertiary" id="galeria">
+    <div class="container" data-aos="fade-up">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">Nuestros Trabajos y Unidades</h2>
+        <p class="text-muted">Conoce cómo realizamos nuestros traslados de forma segura</p>
+      </div>
+      
+      <div id="carruselEjemplos" class="carousel slide shadow rounded overflow-hidden" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="bg-primary text-white d-flex align-items-center justify-content-center" style="height: 350px;">
+              <div class="text-center">
+                <i class="bi bi-truck display-1 mb-2"></i>
+                <h3>Unidad Segura y Equipada</h3>
+                <p>Lista para mudanzas locales y foráneas protegidas.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 350px;">
+              <div class="text-center">
+                <i class="bi bi-box-seam display-1 mb-2"></i>
+                <h3>Cuidado de Tus Muebles</h3>
+                <p>Maniobras profesionales y emplaye de pertenencias.</p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="bg-success text-white d-flex align-items-center justify-content-center" style="height: 350px;">
+              <div class="text-center">
+                <i class="bi bi-geo-alt-fill display-1 mb-2"></i>
+                <h3>Puntualidad Garantizada</h3>
+                <p>Llegamos a tiempo a cualquier punto de la CDMX y Edomex.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Botones con símbolos < y > -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselEjemplos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselEjemplos" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Sección Mapa de Iztapalapa -->
+  <section class="py-5 bg-body-secondary">
+    <div class="container text-center" data-aos="fade-up">
+      <h2 class="fw-bold mb-3">Ubicación y Cobertura en Iztapalapa</h2>
+      <p class="text-muted mb-4">Base de operaciones principal en Iztapalapa, listos para salir a cualquier destino.</p>
+      <div class="ratio ratio-16x9 shadow rounded overflow-hidden">
+        <!-- Mapa incrustado general centrado en Iztapalapa, CDMX -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60233.1594186591!2d-99.091724!3d19.355152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce1fd505a76985%3A0xb36ef55bf9fef987!2sIztapalapa%2C%20CDMX%2C%20Mexico!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer con Redes Sociales -->
   <footer class="py-4 bg-dark text-white text-center">
     <div class="container">
+      <p class="mb-2 fw-bold">FletHumberto - Fletes y Mudanzas</p>
+      <!-- Botones de Redes Sociales Cuadrados con Efecto Brillo -->
+      <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="https://facebook.com" target="_blank" class="social-btn btn-facebook" title="Facebook">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="social-btn btn-instagram" title="Instagram">
+          <i class="bi bi-instagram"></i>
+        </a>
+      </div>
       <p class="mb-1">&copy; 2026 FletHumberto. Todos los derechos reservados.</p>
       <p class="small text-muted">Diseñado para conversiones rápidas vía WhatsApp.</p>
     </div>
   </footer>
 
-  <!-- Scripts: Vue 3, AOS y app.js -->
+  <!-- Scripts: Bootstrap Bundle, Vue 3, AOS y app.js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="./src/app.js"></script>
