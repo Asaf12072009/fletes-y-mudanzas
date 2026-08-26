@@ -36,6 +36,13 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <style>
+    /* Logo Oficial en el Navbar */
+    .navbar-logo {
+      height: 45px;
+      width: auto;
+      object-fit: contain;
+    }
+
     /* Redes Sociales Rectangulares con Logos y Colores Originales + Brillo */
     .social-btn-rect {
       display: inline-flex;
@@ -58,17 +65,32 @@
       box-shadow: 0 0 20px #1877f2, 0 0 40px #1877f2;
     }
 
-    /* Estilo para imágenes de las fotos de los muchachos (3 separadas) */
+    /* Estilo moderno y elegante para las imágenes de trabajos reales */
     .gallery-img-custom {
-      height: 320px;
+      height: 250px;
       object-fit: cover;
-      border-radius: 12px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
 
-    /* Controles de carrusel por fuera de la tarjeta/imagen */
-    .carousel-control-external {
-      width: 5%;
-      filter: invert(100%);
+    /* Botones de control externos estilizados y menos anchos */
+    .btn-carousel-control {
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #212529;
+      color: #fff;
+      border: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+    .btn-carousel-control:hover {
+      background-color: #0d6efd;
+      color: #fff;
+      transform: scale(1.08);
     }
 
     /* Widget Flotante de WhatsApp */
@@ -98,10 +120,12 @@
 </head>
 <body id="app">
 
-  <!-- Navbar -->
+  <!-- Navbar con Logo Oficial -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-body-tertiary">
     <div class="container">
-      <a class="navbar-brand fw-bold text-primary" href="#">FletHumberto</a>
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="./src/images/humbertoramirezlogo.jpg" alt="FletHumberto Logo" class="navbar-logo">
+      </a>
 
       <div class="d-flex align-items-center gap-3">
         <ul class="navbar-nav flex-row gap-3 d-none d-lg-flex me-2">
@@ -227,7 +251,7 @@
     </div>
   </section>
 
-  <!-- Sección Trabajos Reales: 3 imágenes separadas con controles <> por fuera -->
+  <!-- Sección Trabajos Reales con las 13 imágenes organizadas de 3 en 3 -->
   <section class="py-5" id="trabajos">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
@@ -236,97 +260,199 @@
       </div>
 
       <div class="row align-items-center">
-        <!-- Flecha Izquierda Afuera -->
-        <div class="col-1 text-end">
-          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="prev">
-            <i class="bi bi-chevron-left fs-4"></i>
+        <!-- Botón Izquierdo Externo Estilizado -->
+        <div class="col-auto px-0 text-end">
+          <button class="btn-carousel-control" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="prev" title="Anterior">
+            <i class="bi bi-chevron-left fs-5"></i>
           </button>
         </div>
 
-        <!-- Contenedor del Carrusel con 3 columnas separadas -->
-        <div class="col-10">
+        <!-- Contenedor del Carrusel -->
+        <div class="col px-3">
           <div id="carruselTrabajos" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <!-- Slide 1 (Muestra 3 fotos separadas) -->
+              
+              <!-- Grupo 1: Imágenes de prueba, 1, 2 -->
               <div class="carousel-item active">
                 <div class="row g-4">
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 1">
-                      <div class="card-body text-center">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
                         <h6 class="fw-bold mb-1">Protección y Emplaye</h6>
-                        <p class="text-muted small mb-0">Cuidando cada detalle de tus muebles.</p>
+                        <p class="text-muted small mb-0">Cuidando cada detalle.</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 2">
-                      <div class="card-body text-center">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba1.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
                         <h6 class="fw-bold mb-1">Maniobras Expertas</h6>
-                        <p class="text-muted small mb-0">Subiendo carga con total seguridad.</p>
+                        <p class="text-muted small mb-0">Subiendo carga con seguridad.</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 3">
-                      <div class="card-body text-center">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba2.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
                         <h6 class="fw-bold mb-1">Carga Organizada</h6>
-                        <p class="text-muted small mb-0">Unidades listas para salir a ruta.</p>
+                        <p class="text-muted small mb-0">Unidades listas para ruta.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Slide 2 (Otro bloque de 3 fotos separadas) -->
+              <!-- Grupo 2: Imágenes 3, 4, 5 -->
               <div class="carousel-item">
                 <div class="row g-4">
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 4">
-                      <div class="card-body text-center">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba3.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
                         <h6 class="fw-bold mb-1">Equipo en Ruta</h6>
-                        <p class="text-muted small mb-0">Puntualidad en cada destino.</p>
+                        <p class="text-muted small mb-0">Puntualidad garantizada.</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 5">
-                      <div class="card-body text-center">
-                        <h6 class="fw-bold mb-1">Acomodo Final</h6>
-                        <p class="text-muted small mb-0">Colocando todo en su lugar nuevo.</p>
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba4.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Acomodo Profesional</h6>
+                        <p class="text-muted small mb-0">Todo en su lugar.</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4">
-                    <div class="card border-0 shadow-sm h-100 p-2">
-                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 6">
-                      <div class="card-body text-center">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba5.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
                         <h6 class="fw-bold mb-1">Atención de Primera</h6>
-                        <p class="text-muted small mb-0">Los chavos siempre con buena actitud.</p>
+                        <p class="text-muted small mb-0">Excelente actitud de los chavos.</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Grupo 3: Imágenes 6, 7, 8 -->
+              <div class="carousel-item">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba6.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Traslado Seguro</h6>
+                        <p class="text-muted small mb-0">Servicio local y foráneo.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba7.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Carga Comercial</h6>
+                        <p class="text-muted small mb-0">Apoyando a tu negocio.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba8.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Compromiso Total</h6>
+                        <p class="text-muted small mb-0">Cuidamos tus pertenencias.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grupo 4: Imágenes 9, 10, 11 -->
+              <div class="carousel-item">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba9.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Mudanza Completa</h6>
+                        <p class="text-muted small mb-0">Residenciales y departamentos.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba10.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Maniobras Especiales</h6>
+                        <p class="text-muted small mb-0">Muebles grandes sin problema.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba11.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Eficiencia y Rapidez</h6>
+                        <p class="text-muted small mb-0">Tiempos optimizados.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grupo 5: Imágenes 12, 13 -->
+              <div class="carousel-item">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba12.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Equipo Confiable</h6>
+                        <p class="text-muted small mb-0">Personal capacitado.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100">
+                      <img src="./src/images/imagendeprueba13.jpg" class="card-img-top gallery-img-custom" alt="Trabajo Real">
+                      <div class="card-body text-center p-3">
+                        <h6 class="fw-bold mb-1">Clientes Satisfechos</h6>
+                        <p class="text-muted small mb-0">Nuestra mejor recomendación.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 bg-light d-flex align-items-center justify-content-center text-center p-4">
+                      <div class="card-body">
+                        <i class="bi bi-whatsapp text-success display-4 mb-2"></i>
+                        <h6 class="fw-bold mb-1">¿Listo para tu mudanza?</h6>
+                        <p class="text-muted small mb-3">Cotiza ahora mismo con nosotros.</p>
+                        <a :href="whatsappUrl" class="btn btn-success btn-sm fw-bold" target="_blank">Cotizar</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
 
-        <!-- Flecha Derecha Afuera -->
-        <div class="col-1 text-start">
-          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="next">
-            <i class="bi bi-chevron-right fs-4"></i>
+        <!-- Botón Derecho Externo Estilizado -->
+        <div class="col-auto px-0 text-start">
+          <button class="btn-carousel-control" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="next" title="Siguiente">
+            <i class="bi bi-chevron-right fs-5"></i>
           </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección Testimonios y Reseñas Reales: 3 reseñas separadas con controles <> por fuera -->
+  <!-- Sección Testimonios y Reseñas Reales (3 elementos con botones externos estilizados) -->
   <section class="py-5 bg-body-secondary" id="testimonios">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
@@ -335,17 +461,18 @@
       </div>
 
       <div class="row align-items-center">
-        <!-- Flecha Izquierda Afuera -->
-        <div class="col-1 text-end">
-          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="prev">
-            <i class="bi bi-chevron-left fs-4"></i>
+        <!-- Botón Izquierdo Externo Estilizado -->
+        <div class="col-auto px-0 text-end">
+          <button class="btn-carousel-control" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="prev" title="Anterior">
+            <i class="bi bi-chevron-left fs-5"></i>
           </button>
         </div>
 
-        <!-- Contenedor del Carrusel con 3 reseñas separadas -->
-        <div class="col-10">
+        <!-- Contenedor del Carrusel de Reseñas -->
+        <div class="col px-3">
           <div id="carruselTestimonios" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
+              
               <!-- Bloque 1: 3 Reseñas -->
               <div class="carousel-item active">
                 <div class="row g-4">
@@ -388,7 +515,7 @@
                 </div>
               </div>
 
-              <!-- Bloque 2: 3 Reseñas (Con 4 y 5 estrellas, mención de los muchachos y el Sr. Humberto) -->
+              <!-- Bloque 2: 3 Reseñas (Con mención al Sr. Humberto y los muchachos) -->
               <div class="carousel-item">
                 <div class="row g-4">
                   <div class="col-md-4">
@@ -429,14 +556,15 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
 
-        <!-- Flecha Derecha Afuera -->
-        <div class="col-1 text-start">
-          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="next">
-            <i class="bi bi-chevron-right fs-4"></i>
+        <!-- Botón Derecho Externo Estilizado -->
+        <div class="col-auto px-0 text-start">
+          <button class="btn-carousel-control" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="next" title="Siguiente">
+            <i class="bi bi-chevron-right fs-5"></i>
           </button>
         </div>
       </div>
