@@ -4,26 +4,28 @@ createApp({
     setup() {
         const titulo = ref('Fletes y Mudanzas FletHumberto');
         const mensaje = ref('Trasladamos tus pertenencias con el mayor cuidado, seguridad y un trato directo garantizado.');
-        const whatsappUrl = ref('https://wa.me/521234567890?text=Hola,%20Humberto,%20me%20gustaría%20cotizar%20un%20flete%20o%20mudanza.');
+        
+        // RECUERDA: Cambia el número 521234567890 por tu teléfono real para que funcione
+        const whatsappUrl = ref('https://wa.me.');
 
         // Casos de éxito con rutas locales corregidas hacia /src/images/
         const casos = ref([
             {
                 titulo: 'Mudanza Residencial',
                 descripcion: 'Traslado seguro de casa habitación, cuidado de muebles y enseres.',
-                imagen: './src/images/imagendeprueba14.jpg', // Tu foto de la casa moderna
+                imagen: './src/images/imagendeprueba14.jpg',
                 enlace: 'https://facebook.com'
             },
             {
                 titulo: 'Fletes Comerciales',
                 descripcion: 'Apoyo en traslado de mercancía y mobiliario de oficina.',
-                imagen: './src/images/imagendeprueba13.jpg', // Tu foto del almacén con estantes
+                imagen: './src/images/imagendeprueba13.jpg',
                 enlace: 'https://facebook.com'
             },
             {
                 titulo: 'Viajes Foráneos',
                 descripcion: 'Rutas directas y seguras hacia cualquier estado de la república.',
-                imagen: './src/images/imagendeprueba12.jpg', // Tu foto del camión en carretera
+                imagen: './src/images/imagendeprueba12.jpg',
                 enlace: 'https://facebook.com'
             }
         ]);

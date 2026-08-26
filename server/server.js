@@ -1,9 +1,8 @@
-// Dentro de server/server.js
 const express = require('express');
 const path = require('path');
 const app = express();
 
-// ESTA LÍNEA DEBE SERVIR LA CARPETA 'public' 
+// Servir archivos estáticos desde la carpeta public
 app.use(express.static(path.join(__dirname, '../public')));
 
 const PORT = process.env.PORT || 3000;

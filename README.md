@@ -6,7 +6,7 @@ Landing page monolítica y responsiva orientada a la conversión directa por Wha
 
 | Componente | Tecnología / Librería | Descripción |
 | :--- | :--- | :--- |
-| **Lenguaje Base** | JavaScript (Node.js) | Lógica de servidor y control del frontend. |
+| **Lenguaje Base** | JavaScript (jsx) | Lógica de servidor y control del frontend. |
 | **Backend** | Express.js | Servidor monolítico para archivos estáticos y API ligera. |
 | **Interfaz (UI)** | Bootstrap 5.3 | Framework CSS con soporte nativo de modo día/noche (`data-bs-theme`). |
 | **Lógica Frontend**| Vue.js 3 (CDN) | Control reactivo del DOM, carrusel y alternancia de temas. |
