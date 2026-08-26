@@ -1,0 +1,2 @@
+# Treat all .js files as JavaScript explicitly
+*.js linguist-language=JavaScript
