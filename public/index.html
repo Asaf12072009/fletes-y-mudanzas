@@ -58,11 +58,17 @@
       box-shadow: 0 0 20px #1877f2, 0 0 40px #1877f2;
     }
 
-    /* Estilo para imágenes de las fotos de los muchachos (trabajos reales) */
+    /* Estilo para imágenes de las fotos de los muchachos (3 separadas) */
     .gallery-img-custom {
-      height: 380px;
+      height: 320px;
       object-fit: cover;
       border-radius: 12px;
+    }
+
+    /* Controles de carrusel por fuera de la tarjeta/imagen */
+    .carousel-control-external {
+      width: 5%;
+      filter: invert(100%);
     }
 
     /* Widget Flotante de WhatsApp */
@@ -221,51 +227,106 @@
     </div>
   </section>
 
-  <!-- Fotos de pruebas de los chavos en acción (3 fotos por separado deslizables) -->
+  <!-- Sección Trabajos Reales: 3 imágenes separadas con controles <> por fuera -->
   <section class="py-5" id="trabajos">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
         <h2 class="fw-bold display-5">Nuestros Trabajos y Equipo en Acción</h2>
         <p class="text-muted">Desliza para ver fotos reales de los chavos cargando, protegiendo y realizando las maniobras</p>
       </div>
-      
-      <div id="carruselTrabajos" class="carousel slide shadow-lg rounded overflow-hidden" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="./src/images/favicon.jpg" class="d-block w-100 gallery-img-custom" alt="Trabajo Real 1">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-              <h5>Compromiso y Cuidado en Cada Carga</h5>
-              <p>Los muchachos asegurando y emplayando perfectamente cada mueble.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./src/images/favicon.jpg" class="d-block w-100 gallery-img-custom" alt="Trabajo Real 2">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-              <h5>Maniobras Profesionales y Seguras</h5>
-              <p>Equipo listo y preparado para subir y acomodar todo sin dañar tus pertenencias.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="./src/images/favicon.jpg" class="d-block w-100 gallery-img-custom" alt="Trabajo Real 3">
-            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-75 rounded p-2">
-              <h5>Listos para el Viaje</h5>
-              <p>Unidad bien distribuida y lista para rodar hacia su destino final con total seguridad.</p>
+
+      <div class="row align-items-center">
+        <!-- Flecha Izquierda Afuera -->
+        <div class="col-1 text-end">
+          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="prev">
+            <i class="bi bi-chevron-left fs-4"></i>
+          </button>
+        </div>
+
+        <!-- Contenedor del Carrusel con 3 columnas separadas -->
+        <div class="col-10">
+          <div id="carruselTrabajos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- Slide 1 (Muestra 3 fotos separadas) -->
+              <div class="carousel-item active">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 1">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Protección y Emplaye</h6>
+                        <p class="text-muted small mb-0">Cuidando cada detalle de tus muebles.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 2">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Maniobras Expertas</h6>
+                        <p class="text-muted small mb-0">Subiendo carga con total seguridad.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 3">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Carga Organizada</h6>
+                        <p class="text-muted small mb-0">Unidades listas para salir a ruta.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 (Otro bloque de 3 fotos separadas) -->
+              <div class="carousel-item">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 4">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Equipo en Ruta</h6>
+                        <p class="text-muted small mb-0">Puntualidad en cada destino.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 5">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Acomodo Final</h6>
+                        <p class="text-muted small mb-0">Colocando todo en su lugar nuevo.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card border-0 shadow-sm h-100 p-2">
+                      <img src="./src/images/favicon.jpg" class="card-img-top gallery-img-custom" alt="Trabajo 6">
+                      <div class="card-body text-center">
+                        <h6 class="fw-bold mb-1">Atención de Primera</h6>
+                        <p class="text-muted small mb-0">Los chavos siempre con buena actitud.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
+
+        <!-- Flecha Derecha Afuera -->
+        <div class="col-1 text-start">
+          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTrabajos" data-bs-slide="next">
+            <i class="bi bi-chevron-right fs-4"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Testimonios y Reseñas Reales (Con deslizador / carrusel interactivo y comentarios variados) -->
+  <!-- Sección Testimonios y Reseñas Reales: 3 reseñas separadas con controles <> por fuera -->
   <section class="py-5 bg-body-secondary" id="testimonios">
     <div class="container" data-aos="fade-up">
       <div class="text-center mb-5">
@@ -273,88 +334,98 @@
         <p class="text-muted">Experiencias reales de quienes ya confiaron en FletHumberto</p>
       </div>
 
-      <div id="carruselTestimonios" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <!-- Slide 1 -->
-          <div class="carousel-item active">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4 bg-body text-center">
-                  <div class="card-body">
-                    <div class="text-warning mb-3 fs-5">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+      <div class="row align-items-center">
+        <!-- Flecha Izquierda Afuera -->
+        <div class="col-1 text-end">
+          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="prev">
+            <i class="bi bi-chevron-left fs-4"></i>
+          </button>
+        </div>
+
+        <!-- Contenedor del Carrusel con 3 reseñas separadas -->
+        <div class="col-10">
+          <div id="carruselTestimonios" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <!-- Bloque 1: 3 Reseñas -->
+              <div class="carousel-item active">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"Excelente servicio para mi mudanza foránea a Guadalajara. Llegaron a tiempo, muy cuidadosos con los muebles de cristal."</p>
+                        <h6 class="fw-bold mb-0">- Alejandro Ramírez</h6>
+                        <span class="small text-muted">Mudanza Foránea</span>
+                      </div>
                     </div>
-                    <p class="card-text fst-italic mb-3 fs-5">"Excelente servicio para mi mudanza foránea a Guadalajara. Llegaron a tiempo, muy cuidadosos con los muebles de cristal y un trato excelente."</p>
-                    <h5 class="fw-bold mb-1">- Alejandro Ramírez</h5>
-                    <span class="text-muted small">Mudanza Foránea</span>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"Súper recomendado en Iztapalapa. Contraté un flete local de última hora y respondieron con precio justo y sin rodeos."</p>
+                        <h6 class="fw-bold mb-0">- María Fernanda G.</h6>
+                        <span class="small text-muted">Flete Local CDMX</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"Utilizamos sus unidades para la distribución de mercancía de nuestro negocio. Puntuales, honestos y profesionales."</p>
+                        <h6 class="fw-bold mb-0">- Ricardo Méndez</h6>
+                        <span class="small text-muted">Entregas Comerciales PYME</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4 bg-body text-center">
-                  <div class="card-body">
-                    <div class="text-warning mb-3 fs-5">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+
+              <!-- Bloque 2: 3 Reseñas (Con 4 y 5 estrellas, mención de los muchachos y el Sr. Humberto) -->
+              <div class="carousel-item">
+                <div class="row g-4">
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"El señor Humberto es muy buena onda y súper accesible para coordinar todo. Los muchachos que van ayudando tienen una actitud excelente, bien pacientes y chambeadores."</p>
+                        <h6 class="fw-bold mb-0">- Carlos Domínguez</h6>
+                        <span class="small text-muted">Mudanza Residencial</span>
+                      </div>
                     </div>
-                    <p class="card-text fst-italic mb-3 fs-5">"Súper recomendado en Iztapalapa. Contraté un flete local de última hora y respondieron de inmediato con precio justo y sin rodeos. Los chavos muy amables y atentos."</p>
-                    <h5 class="fw-bold mb-1">- María Fernanda G.</h5>
-                    <span class="text-muted small">Flete Local CDMX</span>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4 bg-body text-center">
-                  <div class="card-body">
-                    <div class="text-warning mb-3 fs-5">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"Excelente servicio de fletes. Me ayudaron con el traslado de unos sillones grandes y tuvieron muchísimo cuidado. Da gusto encontrar gente tan honesta."</p>
+                        <h6 class="fw-bold mb-0">- Sofía Morales</h6>
+                        <span class="small text-muted">Flete Local</span>
+                      </div>
                     </div>
-                    <p class="card-text fst-italic mb-3 fs-5">"Utilizamos sus unidades para la distribución de mercancía de nuestro negocio. Puntuales, honestos y muy profesionales en cada entrega."</p>
-                    <h5 class="fw-bold mb-1">- Ricardo Méndez</h5>
-                    <span class="text-muted small">Entregas Comerciales PYME</span>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 4 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4 bg-body text-center">
-                  <div class="card-body">
-                    <div class="text-warning mb-3 fs-5">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                  <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm p-4 bg-body">
+                      <div class="card-body text-center">
+                        <div class="text-warning mb-2">
+                          <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+                        </div>
+                        <p class="card-text small fst-italic mb-3">"Muy buen servicio y atención rápida. Los chavos muy amables al momento de cargar y acomodar todo. 100% recomendados."</p>
+                        <h6 class="fw-bold mb-0">- Daniela R.</h6>
+                        <span class="small text-muted">Mudanza Local</span>
+                      </div>
                     </div>
-                    <p class="card-text fst-italic mb-3 fs-5">"El señor Humberto es muy buena onda y súper accesible para coordinar todo. Los muchachos que van ayudando tienen una actitud excelente, bien pacientes y chambeadores."</p>
-                    <h5 class="fw-bold mb-1">- Carlos Domínguez</h5>
-                    <span class="text-muted small">Mudanza Residencial</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Slide 5 -->
-          <div class="carousel-item">
-            <div class="row justify-content-center">
-              <div class="col-md-8">
-                <div class="card border-0 shadow-sm p-4 bg-body text-center">
-                  <div class="card-body">
-                    <div class="text-warning mb-3 fs-5">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <p class="card-text fst-italic mb-3 fs-5">"Excelente servicio de fletes. Me ayudaron con el traslado de unos sillones grandes y tuvieron muchísimo cuidado. Da gusto encontrar gente tan honesta y profesional."</p>
-                    <h5 class="fw-bold mb-1">- Sofía Morales</h5>
-                    <span class="text-muted small">Flete Local</span>
                   </div>
                 </div>
               </div>
@@ -362,14 +433,12 @@
           </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="next">
-          <span class="carousel-control-next-icon bg-dark rounded-circle p-3 shadow" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
+        <!-- Flecha Derecha Afuera -->
+        <div class="col-1 text-start">
+          <button class="btn btn-dark rounded-circle p-2 shadow" type="button" data-bs-target="#carruselTestimonios" data-bs-slide="next">
+            <i class="bi bi-chevron-right fs-4"></i>
+          </button>
+        </div>
       </div>
     </div>
   </section>
