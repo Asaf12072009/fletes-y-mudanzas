@@ -21,7 +21,7 @@
       "addressRegion": "CDMX",
       "addressCountry": "MX"
     },
-    "url": "https://flet-humberto.railway.app",
+    "url": "https://fletes-y-mudanzas-production-9481.up.railway.app",
     "priceRange": "$$",
     "areaServed": "México",
     "description": "Fletes y mudanzas locales y foráneas con protección garantizada."
@@ -71,35 +71,6 @@
       object-fit: cover;
     }
 
-    /* Mapa de México animado de fondo en el Hero */
-    .hero-map-bg {
-      position: absolute;
-      top: 50%;
-      right: 5%;
-      transform: translateY(-50%);
-      width: 45%;
-      max-width: 550px;
-      opacity: 0.12;
-      z-index: 0;
-      pointer-events: none;
-      animation: floatMap 6s ease-in-out infinite;
-    }
-
-    [data-bs-theme="dark"] .hero-map-bg {
-      opacity: 0.22;
-      filter: invert(1);
-    }
-
-    @keyframes floatMap {
-      0%, 100% { transform: translateY(-50%) scale(1); }
-      50% { transform: translateY(-53%) scale(1.02); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
-
     /* Widget Flotante de WhatsApp */
     .floating-whatsapp {
       position: fixed;
@@ -127,7 +98,7 @@
 </head>
 <body id="app">
 
-  <!-- Navbar (Sin logo izquierdo y sin botón repetido de WhatsApp) -->
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg fixed-top shadow-sm bg-body-tertiary">
     <div class="container">
       <a class="navbar-brand fw-bold text-primary" href="#">FletHumberto</a>
@@ -149,14 +120,9 @@
     </div>
   </nav>
 
-  <!-- Hero Section con Mapa Animado de la República Mexicana al fondo -->
-  <header id="inicio" class="vh-100 d-flex align-items-center bg-body-secondary position-relative overflow-hidden" style="padding-top: 56px;">
-    <!-- Mapa SVG simplificado de México animado -->
-    <svg class="hero-map-bg" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
-      <path fill="currentColor" d="M350,80 Q420,50 500,70 T650,110 T800,180 T850,250 T750,320 T600,380 T500,450 T400,380 T300,300 T200,220 T280,120 Z" />
-    </svg>
-
-    <div class="container hero-content">
+  <!-- Hero Section -->
+  <header id="inicio" class="vh-100 d-flex align-items-center bg-body-secondary" style="padding-top: 56px;">
+    <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-10 mx-auto text-center" data-aos="fade-up">
           <h1 class="display-3 fw-bold mb-3">Fletes y Mudanzas Rápidas y Seguras</h1>
@@ -357,16 +323,13 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer con enlace actualizado de Facebook -->
   <footer class="py-4 bg-dark text-white text-center">
     <div class="container">
       <h4 class="fw-bold mb-3">FletHumberto</h4>
       <div class="d-flex justify-content-center gap-3 mb-3">
-        <a href="https://facebook.com" target="_blank" class="social-btn-rect btn-facebook-orig">
+        <a href="https://www.facebook.com/humbertoramirezmudanzas/" target="_blank" class="social-btn-rect btn-facebook-orig">
           <i class="bi bi-facebook fs-5"></i> Facebook
-        </a>
-        <a href="https://instagram.com" target="_blank" class="social-btn-rect btn-instagram-orig">
-          <i class="bi bi-instagram fs-5"></i> Instagram
         </a>
       </div>
       <p class="mb-1 small">&copy; 2026 FletHumberto. Todos los derechos reservados.</p>
